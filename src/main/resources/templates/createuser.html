@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
-<title>Frontpage</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+<head>
+    <title>fourthingsplus</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="d-flex h-100 text-center">
+<div class="cover-container d-flex w-50 h-100 mx-auto flex-column">
+    <header class="mb-auto">
+        <a href="index.html" th:href="@{/}">
+            <img class="img-fluid mx-auto d-block mb-5" src="../public/images/fourthingsplus_Original.png"
+                 th:src="@{/images/fourthingsplus_Original.png}" width="100%"/>
+        </a>
+    </header>
 
-<a href="index.html" th:href="@{/}">
-    <img src="../public/images/fourthingsplus.png" th:src="@{/images/fourthingsplus.png}" width="35%"/>
-</a>
+    <p class="fs-6 text-primary-emphasis mb-4">Please enter your username and password:</p>
+    <div class="p-3 d-flex justify-content-center">
+    <form method="post">
 
+            <input type="text" class="form-control" style="width: max(30vw)" name="username" placeholder="Username"/><br/><br>
+            <input type="password" class="form-control" style="width: max(30vw)" name="password1" placeholder="Password"><br/><br/>
+            <input type="password" class="form-control" style="width: max(30vw)" name="password2" placeholder="Repeat password"><br/><br/>
 
-<h1>Velkommen til four things plus website</h1>
+        <button type="submit" class="btn btn-success" style="width: max(30vw)" formaction="/createuser">Create Account</button>
+        <div><p th:text="${#ctx.message}"></p></div>
+    </form></div>
 
-<p>Please login:</p>
-
-<form method="post">
-    <input type="text" name="username" placeholder="username"/><br/><br>
-    <input type="password" name="password" placeholder="password"><br/><br/>
-    <button type="submit" formaction="/login">Login</button>
-    <div><p th:text="${#ctx.message}"></p></div>
-</form>
-
-<div th:if="${session.currentUser != null}">
-    <span th:text="${session.currentUser.username}"></span> |
-    <a href="index.html" th:href="@{/logout}">Logout</a>
+    <div th:if="${session.currentUser != null}">
+        <span th:text="${session.currentUser.username}"></span> |
+        <a href="index.html" th:href="@{/logout}" class="btn btn-warning" style="width: max(15vw)">Logout</a>
+    </div>
 </div>
-
-<p><a href="createuser.html" th:href="@{/createuser}"> Create new account</a></p>
-
 </body>
 </html>
 
