@@ -11,6 +11,8 @@ import java.util.List;
 public class TaskMapper
 {
 
+    public static final String FEJL_I_OPDATERING_AF_EN_TASK = "Fejl i opdatering af en task";
+
     public static List<Task> getAllTasksPerUser(int userId, ConnectionPool connectionPool) throws DatabaseException
     {
         List<Task> taskList = new ArrayList<>();
@@ -85,12 +87,12 @@ public class TaskMapper
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected != 1)
             {
-                throw new DatabaseException("Fejl i opdatering af en task");
+                throw new DatabaseException(FEJL_I_OPDATERING_AF_EN_TASK);
             }
         }
         catch (SQLException e)
         {
-            throw new DatabaseException("Fejl i opdatering af en task");
+            throw new DatabaseException(FEJL_I_OPDATERING_AF_EN_TASK);
         }
     }
 
@@ -107,7 +109,7 @@ public class TaskMapper
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected != 1)
             {
-                throw new DatabaseException("Fejl i opdatering af en task");
+                throw new DatabaseException(FEJL_I_OPDATERING_AF_EN_TASK);
             }
         }
         catch (SQLException e)
@@ -159,12 +161,12 @@ public class TaskMapper
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected != 1)
             {
-                throw new DatabaseException("Fejl i opdatering af en task");
+                throw new DatabaseException(FEJL_I_OPDATERING_AF_EN_TASK);
             }
         }
         catch (SQLException e)
         {
-            throw new DatabaseException("Fejl i opdatering af en task", e.getMessage());
+            throw new DatabaseException(FEJL_I_OPDATERING_AF_EN_TASK, e.getMessage());
         }
     }
 }

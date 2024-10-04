@@ -14,15 +14,15 @@
     <header class="mb-auto">
         <a href="index.html" th:href="@{/}">
             <img class="img-fluid mx-auto d-block" src="../public/images/fourthingsplus_Original.png"
-                 th:src="@{/images/fourthingsplus_Original.png}" width="50%"/>
+                 th:src="@{/images/fourthingsplus_Original.png}" alt="Four Things Plus" width="50%"/>
         </a>
     </header>
     <div class="p-3 d-flex justify-content-center">
         <form method="post">
             <input type="text" class="form-control" style="width: max(35vw)" name="username" placeholder="Username"/><br/><br>
             <input type="password" class="form-control" name="password" placeholder="Password"><br/><br/>
-            <button type="submit" class="btn btn-success" style="width: max(35vw)" formaction="/login">Login</button>
             <div><p th:text="${#ctx.message}"></p></div>
+            <button type="submit" class="btn btn-success" style="width: max(35vw)" formaction="/login">Login</button>
         </form>
     </div>
 
